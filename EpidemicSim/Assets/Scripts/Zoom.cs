@@ -7,7 +7,7 @@ public class Zoom : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField]
-    private float ScrollSpeed = 10;
+    private float ScrollSpeed = 0.1f;
     private Camera ZoomCamera;
 
 
