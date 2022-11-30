@@ -13,7 +13,6 @@ public class Default : BaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("^^DefaultState^^");
         transform.GetComponentInParent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Pawn");
 
     }
