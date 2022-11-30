@@ -60,19 +60,12 @@ public class PawnStateController : MonoBehaviour
 
     protected virtual BaseState GetInitialState()
     {
-        Debug.Log("GetInitialState has run correctly?");
-        Debug.Log("The Pawn's tag IS:");
-        Debug.Log(transform.parent.tag);
-
-
         if (transform.parent.tag == "Pawn")
         {
-            Debug.Log("The pawn should set to default state");
             return defaultState;
         }
         if (transform.parent.tag == "InfectedPawn")
         {
-            Debug.Log("The pawn should set to infected state");
             return infectedState;
         }
         else 

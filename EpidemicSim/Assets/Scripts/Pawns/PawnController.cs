@@ -27,7 +27,7 @@ public class PawnController : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("WalkTarget").transform;
 
         agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = true;
+        agent.updateRotation = false;
         agent.updateUpAxis = false;
 
         agent.speed = Random.Range(6f, 12f);
@@ -41,14 +41,20 @@ public class PawnController : MonoBehaviour
     {
         agent.SetDestination(target.position);
 
-        if (hasInfection)
-        {
-
-        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("A pawn entered Infection Area");
+       if(col.gameObject.tag == "Pawn")
+        {
+            int chance = Random.Range(0, 100);
+
+            if(chance > 50)
+            {
+                col.gameObject.tag = this.tag;
+            }
+        }
+        
     }
+
 }

@@ -14,12 +14,15 @@ public class Infected : BaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("^^InfectedState^^");
         transform.GetComponentInParent<SpriteRenderer>().sprite = Resources.Load<Sprite>("INFPawn");
 
-        transform.parent.AddComponent<CircleCollider2D>();
-        transform.parent.GetComponent<CircleCollider2D>().radius = 10;
-        transform.parent.GetComponent<CircleCollider2D>().isTrigger = true;
+        if (!(transform.parent.GetComponent<CircleCollider2D>()))
+        {
+            transform.parent.AddComponent<CircleCollider2D>();
+            transform.parent.GetComponent<CircleCollider2D>().radius = 10;
+            transform.parent.GetComponent<CircleCollider2D>().isTrigger = true;
+        }
+        
 
     }
 
