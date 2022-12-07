@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,6 +12,8 @@ public class Infected : BaseState
 
     }
 
+    public float sus;
+    public int coughChance;
     public override void Enter()
     {
         base.Enter();
@@ -22,7 +25,8 @@ public class Infected : BaseState
             transform.parent.GetComponent<CircleCollider2D>().radius = 10;
             transform.parent.GetComponent<CircleCollider2D>().isTrigger = true;
         }
-        
+
+        sus = transform.GetComponentInParent<PawnController>().susVariable;
 
     }
 
@@ -35,10 +39,23 @@ public class Infected : BaseState
             Destroy(transform.parent.GetComponent<CircleCollider2D>());
             GetComponent<PawnStateController>().ChangeState(GetComponent<PawnStateController>().defaultState);
         }
+
+        coughChance = UnityEngine.Random.Range(1, 100);
+        coughChance = Convert.ToInt32(coughChance / sus);
+
     }
 
     public override void UpdatePhysics()
     {
+        if(coughChance > 50)
+        {
+            Cough();
+        }
+    }
 
+    public void Cough()
+    {
+
+        return;
     }
 }

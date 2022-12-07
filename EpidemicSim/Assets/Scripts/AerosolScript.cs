@@ -11,6 +11,7 @@ public class AerosolScript : MonoBehaviour
     public int endTime;
     float startingSize;
     public float timeStep;
+    public float tmpTime;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class AerosolScript : MonoBehaviour
         transform.localScale = new Vector3(startingSize, startingSize, startingSize);
         //float densityDecrease = cloudDensity / (endTime - startingSize);
         timeStep = (endTime / cloudDensity);
+        tmpTime = timeStep;
         
     }
 
@@ -29,10 +31,11 @@ public class AerosolScript : MonoBehaviour
     {
         timer += Time.deltaTime * 0.3f;
         //int seconds = Convert.ToInt32(timer % 60);
-        Debug.Log(timeStep);
-        if (timer % timeStep == 0)
-        { 
-            Debug.Log("jag är inne");
+
+        //skapa en if sats, om timern är större än timestep så ökar en tmp variabel med timestep och cloud density minskas
+        if(timer > tmpTime)
+        {
+            tmpTime += timeStep;
             cloudDensity = cloudDensity - 1;
         }
 
@@ -46,9 +49,24 @@ public class AerosolScript : MonoBehaviour
             Destroy(gameObject);
         }
 
-        
-        
-         
-        
     }
+
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+
+        if (col.gameObject.tag == "Pawn")
+        {
+            int chance = UnityEngine.Random.Range(0, 100);
+
+            chance = Convert.ToInt32(chance * (cloudDensity/100));
+            Debug.Log(chance);
+
+            if (chance > 50)
+            {
+                col.gameObject.tag = "InfectedPawn";
+            }
+        }
+
+    }
+
 }
