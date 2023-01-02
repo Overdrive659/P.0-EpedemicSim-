@@ -15,6 +15,7 @@ public class PawnStateController : MonoBehaviour
     {
         defaultState = GetComponent<Default>();
         infectedState = GetComponent<Infected>();
+        vaccinatedState = GetComponent<Vaccinated>();
     }
     // Start is called before the first frame update
     void Start()
@@ -67,6 +68,10 @@ public class PawnStateController : MonoBehaviour
         if (transform.parent.tag == "InfectedPawn")
         {
             return infectedState;
+        }
+        if (transform.parent.tag == "VaccinatedPawn")
+        {
+            return vaccinatedState;
         }
         else 
             return null;

@@ -10,7 +10,7 @@ public class PawnController : MonoBehaviour
     // incase in default state run normal code
     // when state changes do the same but have more code 
     // 
-    public bool hasInfection = false;
+    public bool hasVaccine = false;
     public bool hasMask = false;
     public float susVariable = 0;
 
@@ -47,9 +47,9 @@ public class PawnController : MonoBehaviour
     {
        if(col.gameObject.tag == "Pawn")
         {
-            int chance = Random.Range(0, 100);
+            int chance = Random.Range(0, 101);
 
-            if(chance > 50)
+            if(chance > 99)
             {
                 col.gameObject.tag = this.tag;
             }

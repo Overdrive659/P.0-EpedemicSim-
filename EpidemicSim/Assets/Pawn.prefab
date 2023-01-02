@@ -210,6 +210,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81d81707ad33714daec3ed0ad6f3b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sus: 0
+  coughChance: 0
+  test: 0
+  EmotePrefab: {fileID: 2488100733517929283, guid: ea3c7ec9fe295614c9b05c22b6f76878, type: 3}
+  CloudPrefab: {fileID: 3269931271815752701, guid: a159d0d121bccf94f8306b695dc68a68, type: 3}
+  timerS: 0
 --- !u!114 &819769459207824470
 MonoBehaviour:
   m_ObjectHideFlags: 0
