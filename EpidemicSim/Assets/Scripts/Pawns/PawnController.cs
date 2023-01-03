@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,41 +14,49 @@ public class PawnController : MonoBehaviour
     public bool hasVaccine = false;
     public bool hasMask = false;
     public float susVariable = 0;
-
+    
 
 
     //MOVEMENT SYSTEM
-    [SerializeField] Transform target;
+    [SerializeField] Vector3 target;
 
     private NavMeshAgent agent;
 
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("WalkTarget").transform;
-
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-        agent.speed = Random.Range(6f, 12f);
+        agent.speed = UnityEngine.Random.Range(6f, 12f);
         agent.acceleration = agent.speed;
 
-        susVariable = Random.Range(0f, 1f);
+        susVariable = UnityEngine.Random.Range(0f, 1f);
+
+        agent.SetDestination(PositionGenerator());
+        target = agent.destination;
+        Debug.Log("FIRST DEST." + target);
     }
 
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(target.position);
-
+        if(Vector3.Distance(target, transform.position) <= 5)
+        {
+            Debug.Log("Has Reached Target");
+            target = PositionGenerator();
+            agent.SetDestination(target);
+            Debug.Log("NEW DEST." + target);
+        }
+        
     }
 
     public void OnTriggerEnter2D(Collider2D col)
     {
        if(col.gameObject.tag == "Pawn")
         {
-            int chance = Random.Range(0, 101);
+            int chance = UnityEngine.Random.Range(0, 101);
 
             if(chance > 99)
             {
@@ -55,6 +64,13 @@ public class PawnController : MonoBehaviour
             }
         }
         
+    }
+
+    private Vector3 PositionGenerator()
+    {
+        Vector3 RNDPosition = new Vector3(UnityEngine.Random.Range(-374, 374), UnityEngine.Random.Range(-366, 372));
+
+        return RNDPosition;
     }
 
 }
