@@ -60,7 +60,7 @@ public class Infected : BaseState
             sneezeChance = UnityEngine.Random.Range(1, 101);
             //sneezeChance = Convert.ToInt32(sneezeChance * sus);
 
-            if (coughChance > 75)
+            if (coughChance > 85)
             {
                 Cough();
             }

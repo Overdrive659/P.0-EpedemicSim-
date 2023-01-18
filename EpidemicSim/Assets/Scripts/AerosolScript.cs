@@ -59,7 +59,7 @@ public class AerosolScript : MonoBehaviour
 
             chance = Convert.ToInt32(chance * (cloudDensity/100));
 
-            if (chance > 15)
+            if (chance > 85)
             {
                 col.gameObject.tag = "InfectedPawn";
             }
