@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AerosolScript : MonoBehaviour
+public class MenuCloud : MonoBehaviour
 {
     [SerializeField] private float timer = 0.0f;
     [SerializeField] private float cloudDensity = 100;
@@ -11,13 +11,9 @@ public class AerosolScript : MonoBehaviour
     private float startingSize;
     private float timeStep;
     private float tmpTime;
-    [SerializeField] public float spawnedSus;
-    VarManager VarManager;
 
     void Start()
     {
-        VarManager = GameObject.Find("GameManager").GetComponent<VarManager>();
-
         endTime = UnityEngine.Random.Range(9, 15);
         startingSize = UnityEngine.Random.Range(3f, 6f);
         transform.localScale = new Vector3(startingSize, startingSize, startingSize);
@@ -35,7 +31,7 @@ public class AerosolScript : MonoBehaviour
         timer += Time.deltaTime * 0.6f;
         //int seconds = Convert.ToInt32(timer % 60);
 
-        if(timer > tmpTime)
+        if (timer > tmpTime)
         {
             tmpTime += timeStep;
             cloudDensity = cloudDensity - 1;
@@ -58,16 +54,17 @@ public class AerosolScript : MonoBehaviour
 
         if (col.gameObject.CompareTag("Pawn"))
         {
+
             int chance = UnityEngine.Random.Range(0, 101);
 
-            chance = Convert.ToInt32(chance * spawnedSus * (cloudDensity/100));
-
-            if (chance > VarManager.cloudInfectionChance)
+            if (chance > 80)
             {
                 col.gameObject.tag = "InfectedPawn";
             }
+
         }
 
     }
 
 }
+

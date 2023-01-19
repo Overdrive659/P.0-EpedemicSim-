@@ -13,6 +13,7 @@ public class Infected : BaseState
 
     }
 
+    VarManager VarManager;
     [SerializeField] protected float sus;
     [SerializeField] protected int coughChance;
     [SerializeField] protected int sneezeChance;
@@ -24,21 +25,24 @@ public class Infected : BaseState
         base.Enter();
         transform.GetComponentInParent<SpriteRenderer>().sprite = Resources.Load<Sprite>("INFPawn");
 
+        VarManager = GameObject.Find("GameManager").GetComponent<VarManager>();
+
         if (!(transform.parent.GetComponent<CircleCollider2D>()))
         {
             transform.parent.AddComponent<CircleCollider2D>();
-            transform.parent.GetComponent<CircleCollider2D>().radius = 10;
+            transform.parent.GetComponent<CircleCollider2D>().radius = VarManager.breathRadius;
             transform.parent.GetComponent<CircleCollider2D>().isTrigger = true;
         }
 
         sus = transform.GetComponentInParent<PawnController>().susVariable;
+        Debug.Log(sus);
         StartCoroutine(SpreadSystem());
     }
 
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        if (transform.parent.tag == "Pawn")
+        if (transform.parent.CompareTag("Pawn"))
         {
             // stateMachine.ChangeState(((PawnSM)stateMachine).defaultState); 
             Destroy(transform.parent.GetComponent<CircleCollider2D>());
@@ -54,17 +58,16 @@ public class Infected : BaseState
     {
         while (true)
         {
-            Debug.Log("SpreadSystem Coroutine Start");
             coughChance = UnityEngine.Random.Range(1, 101);
-            //coughChance = Convert.ToInt32(coughChance * sus);
+            coughChance = Convert.ToInt32(coughChance * sus);
             sneezeChance = UnityEngine.Random.Range(1, 101);
-            //sneezeChance = Convert.ToInt32(sneezeChance * sus);
+            sneezeChance = Convert.ToInt32(sneezeChance * sus);
 
-            if (coughChance > 85)
+            if (coughChance > VarManager.coughChance)
             {
                 Cough();
             }
-            if (sneezeChance > 90)
+            if (sneezeChance > VarManager.sneezeChance)
             {
                 Sneeze();
             }
@@ -77,6 +80,7 @@ public class Infected : BaseState
     {
         ShowText("*Coughs!*");
         GameObject AerosolCloud = Instantiate(CloudPrefab, transform.position, Quaternion.identity);
+        AerosolCloud.GetComponent<AerosolScript>().spawnedSus = sus;
         return;
     }
 
@@ -84,6 +88,7 @@ public class Infected : BaseState
     {
         ShowText("*Sneezes!*");
         GameObject AerosolCloud = Instantiate(CloudPrefab, transform.position, Quaternion.identity);
+        AerosolCloud.GetComponent<AerosolScript>().spawnedSus = sus;
         return;
     }
 
