@@ -1,17 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VarManager : MonoBehaviour
 {
-    public float minimumSusceptibility = 0;
-    public float maximumSusceptibility = 1;
-    public int cloudInfectionChance = 45;
-    public int coughChance = 55;
-    public int sneezeChance = 35;
-    public int hasMaskChance = 50;
-    public int breathRadius = 5;
-    public int areaInfectionChance = 1;
+    public VarHolder VarHolder;
+
+    public float minimumSusceptibility;
+    public float maximumSusceptibility;
+    public int cloudInfectionChance;
+    public int coughChance;
+    public int sneezeChance;
+    public int hasMaskChance;
+    public int breathRadius;
+    public int areaInfectionChance;
+
+    private void Awake()
+    {
+        minimumSusceptibility = VarHolder.minimumSusceptibility;
+        maximumSusceptibility = VarHolder.maximumSusceptibility;
+        cloudInfectionChance = VarHolder.cloudInfectionChance;
+        coughChance = VarHolder.coughChance;
+        breathRadius = VarHolder.breathRadius;
+        hasMaskChance = VarHolder.hasMaskChance;
+        breathRadius = VarHolder.breathRadius;
+        cloudInfectionChance = VarHolder.cloudInfectionChance;
+}
 
     // Start is called before the first frame update
     void Start()
