@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System.Runtime.CompilerServices;
 
 public class MenuDataManager : MonoBehaviour
 {
@@ -17,15 +18,13 @@ public class MenuDataManager : MonoBehaviour
     Slider MaxSusSlider;
     Slider MinSusSlider;
 
-    [SerializeField] private TextMeshProUGUI TimeText;
+    [SerializeField] private InputField TimeField;
 
     public VarHolder VarHolder;
 
     // Start is called before the first frame update
     void Start()
     {
-        TimeText = GameObject.Find("TimeText").GetComponent<TextMeshProUGUI>();
-
         BreathRadiusSlider = GameObject.Find("BreathRadiusSlider").GetComponent<Slider>();
         AreaInfectionSlider = GameObject.Find("AreaInfectionSlider").GetComponent<Slider>();
         CoughSlider = GameObject.Find("CoughSlider").GetComponent<Slider>();
@@ -34,8 +33,6 @@ public class MenuDataManager : MonoBehaviour
         MaskSlider = GameObject.Find("MaskSlider").GetComponent<Slider>();
         MaxSusSlider = GameObject.Find("MaxSusSlider").GetComponent<Slider>();
         MinSusSlider = GameObject.Find("MinSusSlider").GetComponent<Slider>();
-
-        
     }
 
     // Update is called once per frame
@@ -49,14 +46,14 @@ public class MenuDataManager : MonoBehaviour
         VarHolder.hasMaskChance = Convert.ToInt32(MaskSlider.value);
         VarHolder.maximumSusceptibility = MaxSusSlider.value;
         VarHolder.minimumSusceptibility = MinSusSlider.value;
-
-        string TimerEntry = TimeText.text;
-
-
     }
 
     public void OnDestroy()
     {
-        
+        string[] timeArray = TimeField.text.Split(':');
+        Debug.Log(timeArray[0]);
+        Debug.Log(timeArray[1]);
+        VarHolder.simHours = int.Parse(timeArray[0]);
+        VarHolder.simMinutes = int.Parse(timeArray[1]);
     }
 }
