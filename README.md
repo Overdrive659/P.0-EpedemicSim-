@@ -1,4 +1,4 @@
-# P.0-EpedemicSim-
+# P.0-EpedemicSim- ☣
 Patient-Zero Epedemic Simulator is a joint work between me and my college to produce our final paper for Gymnasium.
 
 This simulator is the main focus of our paper, we are putting it up to be Demo-ed at the Borlänge Unga-Forskare Semifinals before a scientific Jury.
