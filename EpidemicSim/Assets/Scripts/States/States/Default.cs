@@ -20,9 +20,9 @@ public class Default : BaseState
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        if (transform.parent.CompareTag("InfectedPawn"))
+        if (transform.parent.CompareTag("IncubatingPawn"))
         {
-            GetComponent<PawnStateController>().ChangeState(GetComponent<PawnStateController>().infectedState);
+            GetComponent<PawnStateController>().ChangeState(GetComponent<PawnStateController>().incubatingState);
         }
     }
 

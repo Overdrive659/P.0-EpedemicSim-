@@ -8,6 +8,7 @@ TagManager:
   - Pawn
   - VaccinatedPawn
   - InfectedPawn
+  - IncubatingPawn
   layers:
   - Default
   - TransparentFX

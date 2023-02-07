@@ -101,10 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109cf7715f16d6543892831adbc8ce7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasInfection: 0
   hasMask: 0
   susVariable: 0
-  target: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
 --- !u!195 &819769458334171749
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -176,6 +175,8 @@ GameObject:
   - component: {fileID: 819769459207824469}
   - component: {fileID: 819769459207824470}
   - component: {fileID: 819769459207824471}
+  - component: {fileID: 2991704221007817067}
+  - component: {fileID: 4920057230680893294}
   m_Layer: 0
   m_Name: States
   m_TagString: Pawn
@@ -212,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sus: 0
   coughChance: 0
-  test: 0
+  sneezeChance: 0
   EmotePrefab: {fileID: 2488100733517929283, guid: ea3c7ec9fe295614c9b05c22b6f76878, type: 3}
   CloudPrefab: {fileID: 3269931271815752701, guid: a159d0d121bccf94f8306b695dc68a68, type: 3}
   timerS: 0
@@ -244,3 +245,28 @@ MonoBehaviour:
   defaultState: {fileID: 0}
   infectedState: {fileID: 0}
   vaccinatedState: {fileID: 0}
+  incubatingState: {fileID: 0}
+--- !u!114 &2991704221007817067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819769459207824465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e60a2d7e7d1eb2947b860be0f8eea204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4920057230680893294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819769459207824465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 840edddde2eb5524e94a37813153418d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -64,7 +64,7 @@ public class AerosolScript : MonoBehaviour
 
             if (chance > VarManager.cloudInfectionChance)
             {
-                col.gameObject.tag = "InfectedPawn";
+                col.gameObject.tag = "IncubatingPawn";
             }
         }
 

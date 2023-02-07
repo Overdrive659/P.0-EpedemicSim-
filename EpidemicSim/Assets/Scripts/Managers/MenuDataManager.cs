@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
 
 public class MenuDataManager : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class MenuDataManager : MonoBehaviour
     Slider MinSusSlider;
 
     [SerializeField] private InputField TimeField;
+
+    [SerializeField] private InputField DefaultPawnField;
+    [SerializeField] private InputField InfectedPawnField;
+    [SerializeField] private InputField VaccinatedPawnField;
 
     public VarHolder VarHolder;
 
@@ -50,10 +55,47 @@ public class MenuDataManager : MonoBehaviour
 
     public void OnDestroy()
     {
-        string[] timeArray = TimeField.text.Split(':');
-        Debug.Log(timeArray[0]);
-        Debug.Log(timeArray[1]);
-        VarHolder.simHours = int.Parse(timeArray[0]);
-        VarHolder.simMinutes = int.Parse(timeArray[1]);
+        if(TimeField.text != null)
+        {
+            string[] timeArray = TimeField.text.Split(':');
+            UnityEngine.Debug.Log(timeArray[0]);
+            UnityEngine.Debug.Log(timeArray[1]);
+            VarHolder.simHours = int.Parse(timeArray[0]);
+            VarHolder.simMinutes = int.Parse(timeArray[1]);
+        }
+
+        bool IsNull1 = Int32.TryParse(DefaultPawnField.text, out int tmp1);
+        bool IsNull2 = Int32.TryParse(InfectedPawnField.text, out int tmp2);
+        bool IsNull3 = Int32.TryParse(VaccinatedPawnField.text, out int tmp3);
+
+        if (IsNull1)
+        {
+            VarHolder.uninfectedPawnAmount = tmp1;
+        }
+        else
+        {
+            VarHolder.uninfectedPawnAmount = null;
+        }
+
+        if (IsNull2)
+        {
+            VarHolder.infectedPawnAmount = tmp2;
+        }
+        else
+        {
+            VarHolder.infectedPawnAmount = null;
+        }
+
+        if (IsNull3)
+        {
+            VarHolder.vaccinatedPawnAmount = tmp3;
+        }
+        else
+        {
+            VarHolder.vaccinatedPawnAmount = null;
+        }
+
+
+
     }
 }

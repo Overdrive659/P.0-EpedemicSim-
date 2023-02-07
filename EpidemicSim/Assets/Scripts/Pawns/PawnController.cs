@@ -11,27 +11,27 @@ public class PawnController : MonoBehaviour
     VarManager VarManager;
     
     public bool hasMask;
-    public float susVariable = 0.5f;
+    public float susVariable;
 
     //MOVEMENT SYSTEM
     [SerializeField] Vector3 target;
 
     private NavMeshAgent agent;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         VarManager = GameObject.Find("GameManager").GetComponent<VarManager>();
         susVariable = UnityEngine.Random.Range(VarManager.minimumSusceptibility, VarManager.maximumSusceptibility);
-
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
         agent.speed = UnityEngine.Random.Range(6f, 12f);
         agent.acceleration = agent.speed;
-
-        susVariable = UnityEngine.Random.Range(0f, 1f);
 
         agent.SetDestination(PositionGenerator());
         target = agent.destination;
@@ -55,7 +55,7 @@ public class PawnController : MonoBehaviour
 
             if((chance * susVariable) > VarManager.areaInfectionChance)
             {
-                col.gameObject.tag = this.tag;
+                col.gameObject.tag = "IncubatingPawn";
             }
         }
         

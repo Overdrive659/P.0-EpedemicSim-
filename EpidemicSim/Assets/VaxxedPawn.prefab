@@ -101,10 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109cf7715f16d6543892831adbc8ce7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasVaccine: 0
   hasMask: 0
   susVariable: 0
-  target: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
 --- !u!195 &8668276318071314725
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -177,6 +176,7 @@ GameObject:
   - component: {fileID: 8668276320022609686}
   - component: {fileID: 8668276320022609687}
   - component: {fileID: 1952842232239891189}
+  - component: {fileID: 8098661401889436908}
   m_Layer: 0
   m_Name: States
   m_TagString: Pawn
@@ -245,6 +245,7 @@ MonoBehaviour:
   defaultState: {fileID: 0}
   infectedState: {fileID: 0}
   vaccinatedState: {fileID: 0}
+  incubatingState: {fileID: 0}
 --- !u!114 &1952842232239891189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,5 +256,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 840edddde2eb5524e94a37813153418d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8098661401889436908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8668276320022609681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e60a2d7e7d1eb2947b860be0f8eea204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

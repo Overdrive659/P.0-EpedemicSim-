@@ -35,7 +35,6 @@ public class Infected : BaseState
         }
 
         sus = transform.GetComponentInParent<PawnController>().susVariable;
-        Debug.Log(sus);
         StartCoroutine(SpreadSystem());
     }
 

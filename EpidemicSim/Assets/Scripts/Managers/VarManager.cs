@@ -16,6 +16,14 @@ public class VarManager : MonoBehaviour
     public int breathRadius;
     public int areaInfectionChance;
 
+    public int? uninfectedPawnAmount;
+    public int? infectedPawnAmount;
+    public int? vaccinatedPawnAmount;
+    public int? totalPawns;
+
+    public int simHours;
+    public int simMinutes;
+
     private void Awake()
     {
         minimumSusceptibility = VarHolder.minimumSusceptibility;
@@ -26,11 +34,20 @@ public class VarManager : MonoBehaviour
         hasMaskChance = VarHolder.hasMaskChance;
         breathRadius = VarHolder.breathRadius;
         cloudInfectionChance = VarHolder.cloudInfectionChance;
+
+        uninfectedPawnAmount = VarHolder.uninfectedPawnAmount;
+        infectedPawnAmount = VarHolder.infectedPawnAmount;
+        vaccinatedPawnAmount = VarHolder.vaccinatedPawnAmount;
+
+        simHours = VarHolder.simHours;
+        simMinutes = VarHolder.simMinutes;
 }
 
     // Start is called before the first frame update
     void Start()
     {
+        totalPawns = uninfectedPawnAmount + infectedPawnAmount + vaccinatedPawnAmount;
+
         areaInfectionChance = 100 - areaInfectionChance;
         cloudInfectionChance = 100 - cloudInfectionChance;
         coughChance = 100 - coughChance;
