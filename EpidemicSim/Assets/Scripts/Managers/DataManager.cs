@@ -34,8 +34,7 @@ public class DataManager : MonoBehaviour
         Debug.Log("Infection Over Time, 1st TUPLE:");
         Debug.Log(InfectionOverTimeS[0]);
 
-        CreateStorage();
-        mainPath = Application.dataPath + @"\Logs\Simulation_Data_Log\";
+        mainPath = Application.dataPath + @"\Simulation_Data_Log\";
     }
 
     void Update()
@@ -53,30 +52,20 @@ public class DataManager : MonoBehaviour
         //DataCollection();
     }
 
-    void CreateStorage()
-    {
-        //Create File, with proper path, add text file to it.
-        //Path
-        string path = Application.dataPath + @"\Logs\Simulation_Data_Log\";
-
-        Directory.CreateDirectory(path);
-    }
-
     //Function for creating and storing all Data that's been gathered in the Sim
     void DataCollection()
     {
         //InfectionOverTime Collection
         if (InfectionOverTimeS.Count > 0)
         {
-            using (TextWriter sw = new StreamWriter(mainPath + "InfectionOverTime.csv"))
+            using (StreamWriter sw = new StreamWriter(mainPath + "InfectionOverTime.csv"))
             {
-                sw.WriteLine("INFECTION OVER TIME, LOG" + "|" + "Total time(s):" + Timer.timeRemainingS + "TOTAL INFECTIONS:" + totInfected + ",");
+                sw.WriteLine("INFECTION OVER TIME - LOG" + "|" + " Total time(s):" + Timer.secondsPassed + "TOTAL INFECTIONS:" + totInfected + ",");
                 sw.WriteLine("Time, Total Infections");
                 for (int i = 0; i < InfectionOverTimeS.Count; i++)
                 {
                     sw.WriteLine(InfectionOverTimeS[i]);
                 }
-                sw.Close();
             }
         }
     }
