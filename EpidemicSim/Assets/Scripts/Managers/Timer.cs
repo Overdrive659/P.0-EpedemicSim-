@@ -16,9 +16,13 @@ public class Timer : MonoBehaviour
     public int tmpMinutes;
 
     public float timeRemainingS;
+    public float totalTimeS;
     public float minuteStep;
 
-    private bool timerIsRunning = true;
+    public int secondsPassed;
+    public int minutesPassed;
+
+    public bool timerIsRunning = true;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +37,7 @@ public class Timer : MonoBehaviour
 
         //calculates entire time in seconds????
         timeRemainingS = (totHours * 3600) + (totMinutes * 60);
+        totalTimeS = timeRemainingS;
 
         //Used to decrease minute timer
         minuteStep = timeRemainingS;
@@ -73,5 +78,8 @@ public class Timer : MonoBehaviour
             }
 
         }
+
+        secondsPassed = Convert.ToInt32(totalTimeS - timeRemainingS);
+        minutesPassed = Convert.ToInt32((totalTimeS - timeRemainingS) / 60);
     }
 }

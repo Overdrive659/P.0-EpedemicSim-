@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,8 @@ public class VarManager : MonoBehaviour
     public int simHours;
     public int simMinutes;
 
+    public int totalInfected;
+
     private void Awake()
     {
         minimumSusceptibility = VarHolder.minimumSusceptibility;
@@ -38,6 +41,8 @@ public class VarManager : MonoBehaviour
         uninfectedPawnAmount = VarHolder.uninfectedPawnAmount;
         infectedPawnAmount = VarHolder.infectedPawnAmount;
         vaccinatedPawnAmount = VarHolder.vaccinatedPawnAmount;
+
+        totalInfected = Convert.ToInt32(infectedPawnAmount);
 
         simHours = VarHolder.simHours;
         simMinutes = VarHolder.simMinutes;

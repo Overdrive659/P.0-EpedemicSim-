@@ -1635,6 +1635,7 @@ GameObject:
   - component: {fileID: 79684808}
   - component: {fileID: 79684810}
   - component: {fileID: 79684811}
+  - component: {fileID: 79684812}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1663,10 +1664,6 @@ MonoBehaviour:
   hasMaskChance: 50
   breathRadius: 5
   areaInfectionChance: 15
-  uninfectedPawnAmount: 0
-  infectedPawnAmount: 0
-  vaccinatedPawnAmount: 0
-  totalPawns: 0
   simHours: 0
   simMinutes: 0
 --- !u!4 &79684809
@@ -1720,6 +1717,21 @@ MonoBehaviour:
   Pawn: {fileID: 819769458334171747, guid: 6326403bd3817ec4baacfa91783fcca7, type: 3}
   InfPawn: {fileID: 1040632005531033941, guid: 4dc6c401b6238d047bbac27d051521ee, type: 3}
   VaxPawn: {fileID: 8668276318071314723, guid: 5c90b12786942ba47926c6cfefe2b23c, type: 3}
+--- !u!114 &79684812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79684807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1865f87e086129f4d9fc7bcd809c49e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VarManager: {fileID: 0}
+  Timer: {fileID: 0}
+  InfectionCollection: []
 --- !u!1 &88935060
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,13 +13,23 @@ public class Incubating : BaseState
 
     public VarManager VarManager;
     [SerializeField] protected float sus;
+    [SerializeField] DataManager DataManager;
+    [SerializeField] Timer Timer;
 
     public override void Enter()
     {
         base.Enter();
         transform.GetComponentInParent<SpriteRenderer>().sprite = Resources.Load<Sprite>("IncubPawn");
+
         VarManager = GameObject.Find("GameManager").GetComponent<VarManager>();
+        DataManager = GameObject.Find("GameManager").GetComponent<DataManager>();
+        Timer = GameObject.Find("GameManager").GetComponent<Timer>();
+
         sus = transform.GetComponentInParent<PawnController>().susVariable;
+
+        VarManager.totalInfected = VarManager.totalInfected +1;
+        DataManager.InfectionOverTimeS.Add(Tuple.Create(Timer.secondsPassed, VarManager.totalInfected));
+
         StartCoroutine(WaitSystem());
     }
 
