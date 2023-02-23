@@ -1666,6 +1666,7 @@ MonoBehaviour:
   areaInfectionChance: 15
   simHours: 0
   simMinutes: 0
+  totalInfected: 0
 --- !u!4 &79684809
 Transform:
   m_ObjectHideFlags: 0
@@ -1700,7 +1701,11 @@ MonoBehaviour:
   tmpHours: 0
   tmpMinutes: 0
   timeRemainingS: 0
+  totalTimeS: 0
   minuteStep: 0
+  secondsPassed: 0
+  minutesPassed: 0
+  timerIsRunning: 1
 --- !u!114 &79684811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1731,7 +1736,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VarManager: {fileID: 0}
   Timer: {fileID: 0}
-  InfectionCollection: []
+  VarHolder: {fileID: 11400000, guid: 2597ca7de0abcb24e80e635f50ea05be, type: 2}
+  totInfected: 0
+  InfectionLocations: []
 --- !u!1 &88935060
 GameObject:
   m_ObjectHideFlags: 0
@@ -8034,6 +8041,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &449260520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 449260521}
+  m_Layer: 0
+  m_Name: corner1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &449260521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449260520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -450, y: 450, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &460807754
 GameObject:
   m_ObjectHideFlags: 0
@@ -47575,6 +47613,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &2083233611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2083233612}
+  m_Layer: 0
+  m_Name: corner2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2083233612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083233611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 450, y: -450, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2084867939
 GameObject:
   m_ObjectHideFlags: 0

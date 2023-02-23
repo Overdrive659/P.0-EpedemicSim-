@@ -31,11 +31,14 @@ public class VarManager : MonoBehaviour
     {
         minimumSusceptibility = VarHolder.minimumSusceptibility;
         maximumSusceptibility = VarHolder.maximumSusceptibility;
+
         cloudInfectionChance = VarHolder.cloudInfectionChance;
         coughChance = VarHolder.coughChance;
+        sneezeChance = VarHolder.sneezeChance;
+        areaInfectionChance = VarHolder.areaInfectionChance;
+
         breathRadius = VarHolder.breathRadius;
         hasMaskChance = VarHolder.hasMaskChance;
-        breathRadius = VarHolder.breathRadius;
         cloudInfectionChance = VarHolder.cloudInfectionChance;
 
         uninfectedPawnAmount = VarHolder.uninfectedPawnAmount;

@@ -1011,7 +1011,7 @@ Transform:
   m_GameObject: {fileID: 127672388}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 125, y: 70, z: 1}
+  m_LocalScale: {x: 135, y: 80, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1207294137}
@@ -5556,6 +5556,9 @@ MonoBehaviour:
   hasMaskChance: 50
   breathRadius: 5
   areaInfectionChance: 15
+  simHours: 0
+  simMinutes: 0
+  totalInfected: 0
 --- !u!4 &834966453
 Transform:
   m_ObjectHideFlags: 0

@@ -1,0 +1,21 @@
+-|-Simulation Variables & Parameters TXT Document-|-
+--------------------------------------------------------
+This document contains all the variables and paramateres
+set by the user for testing.
+
+DISEASE VICTIM SUSCEPTIBILITY | Minimum val:0 | Maximum val:1
+MASK WEARING PROBABILITY | Percentage:50
+BREATH RADIUS | Units:5
+BREATH INFECTION CHANCE | Percentage:1
+COUGH CHANCE | Percentage:40
+SNEEZE CHANCE | Percentage:10
+AEROSOL CLOUD INFECTION CHANCE | Percentage:45
+--------------------------------------------------------
+TOTAL SIMULATION TIME | Hours:0 Minutes:1
+TOTAL PAWNS IN PLAY:260
+UN-INFECTED:200
+INFECTED:10
+VACCINATED:50
+
+Percentage of Infected at Start: 0%
+Percentage of Vaccinated at Start: 0%

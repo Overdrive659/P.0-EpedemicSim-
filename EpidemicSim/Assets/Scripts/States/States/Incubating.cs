@@ -27,8 +27,11 @@ public class Incubating : BaseState
 
         sus = transform.GetComponentInParent<PawnController>().susVariable;
 
+        //Data Collection
         VarManager.totalInfected = VarManager.totalInfected +1;
         DataManager.InfectionOverTimeS.Add(Tuple.Create(Timer.secondsPassed, VarManager.totalInfected));
+
+        DataManager.InfectionLocations.Add(new Vector2(transform.position.x, transform.position.y));
 
         StartCoroutine(WaitSystem());
     }
