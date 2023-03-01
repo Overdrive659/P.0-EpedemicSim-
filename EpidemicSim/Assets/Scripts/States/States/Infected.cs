@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class Infected : BaseState
 {
@@ -14,6 +16,8 @@ public class Infected : BaseState
     }
 
     VarManager VarManager;
+    [SerializeField] PawnController controller;
+
     [SerializeField] protected float sus;
     [SerializeField] protected int coughChance;
     [SerializeField] protected int sneezeChance;
@@ -23,10 +27,70 @@ public class Infected : BaseState
     public override void Enter()
     {
         base.Enter();
-        transform.GetComponentInParent<SpriteRenderer>().sprite = Resources.Load<Sprite>("INFPawn");
 
+        //Define
+        controller = transform.GetComponentInParent<PawnController>();
+
+
+        //FUCKING ADDRESSABLES BITCH
+        //FUCK THIS CONVOLUTED SYSTEM
+        if(controller.hasMask)
+        {
+            Addressables.LoadAssetAsync<Sprite>("Assets/Resources_moved/MaskedINFPawn.png").Completed += (asyncOperationHandle) =>
+            {
+                if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    transform.GetComponentInParent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
+                }
+                else
+                {
+                    Debug.Log("INFpawn Spriteload FAILED!");
+                }
+            };
+        }
+        else
+        {
+            Addressables.LoadAssetAsync<Sprite>("Assets/Resources_moved/INFPawn.png").Completed += (asyncOperationHandle) =>
+            {
+                if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    transform.GetComponentInParent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
+                }
+                else
+                {
+                    Debug.Log("INFpawn Spriteload FAILED!");
+                }
+            };
+        }
+
+        //Addressing AeroCloud
+        Addressables.LoadAssetAsync<GameObject>("Assets/AerosolCloud.prefab").Completed += (asyncOperationHandle) =>
+        {
+            if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
+            {
+                CloudPrefab = asyncOperationHandle.Result;
+            }
+            else
+            {
+                Debug.Log("INFPawn AeroCloud Prefab Load Failed!");
+            }
+        };
+
+        /* TEMPORARILY DEPRECATED
+        //Sprite Setting
+        if (controller.hasMask)
+        {
+            transform.GetComponentInParent<SpriteRenderer>().sprite = Resources.Load<Sprite>("MaskedINFPawn");
+        }
+        else
+            transform.GetComponentInParent<SpriteRenderer>().sprite = Resources.Load<Sprite>("INFPawn");
+
+        */
+
+        //Define
         VarManager = GameObject.Find("GameManager").GetComponent<VarManager>();
 
+        //Breath Collider Spawn
         if (!(transform.parent.GetComponent<CircleCollider2D>()))
         {
             transform.parent.AddComponent<CircleCollider2D>();
@@ -35,6 +99,7 @@ public class Infected : BaseState
         }
 
         sus = transform.GetComponentInParent<PawnController>().susVariable;
+
         StartCoroutine(SpreadSystem());
     }
 
@@ -47,10 +112,6 @@ public class Infected : BaseState
             Destroy(transform.parent.GetComponent<CircleCollider2D>());
             GetComponent<PawnStateController>().ChangeState(GetComponent<PawnStateController>().defaultState);
         }
-
-        
-
-
     }
 
     IEnumerator SpreadSystem()
@@ -80,6 +141,7 @@ public class Infected : BaseState
         ShowText("*Coughs!*");
         GameObject AerosolCloud = Instantiate(CloudPrefab, transform.position, Quaternion.identity);
         AerosolCloud.GetComponent<AerosolScript>().spawnedSus = sus;
+        AerosolCloud.GetComponent<AerosolScript>().hadMask = controller.hasMask;
         return;
     }
 
@@ -88,7 +150,8 @@ public class Infected : BaseState
         ShowText("*Sneezes!*");
         GameObject AerosolCloud = Instantiate(CloudPrefab, transform.position, Quaternion.identity);
         AerosolCloud.GetComponent<AerosolScript>().spawnedSus = sus;
-        return;
+        AerosolCloud.GetComponent<AerosolScript>().hadMask = controller.hasMask;
+            return;
     }
 
     void ShowText(string text)

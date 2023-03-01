@@ -75,9 +75,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingLayerID: -100980607
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 45d460fc50f90e448bb2b6667ae04074, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81d81707ad33714daec3ed0ad6f3b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
   sus: 0
   coughChance: 0
   sneezeChance: 0
@@ -229,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21572b377df7d0c4ebbe5d0bd8b3b213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
 --- !u!114 &1040632006726673556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +260,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e60a2d7e7d1eb2947b860be0f8eea204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VarManager: {fileID: 0}
+  sus: 0
+  DataManager: {fileID: 0}
+  Timer: {fileID: 0}
+  controller: {fileID: 0}
 --- !u!114 &4673647954988922559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,3 +277,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 840edddde2eb5524e94a37813153418d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}

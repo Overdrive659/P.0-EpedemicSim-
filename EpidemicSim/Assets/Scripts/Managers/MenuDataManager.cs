@@ -58,10 +58,14 @@ public class MenuDataManager : MonoBehaviour
         if(TimeField.text != null)
         {
             string[] timeArray = TimeField.text.Split(':');
-            UnityEngine.Debug.Log(timeArray[0]);
-            UnityEngine.Debug.Log(timeArray[1]);
-            VarHolder.simHours = int.Parse(timeArray[0]);
-            VarHolder.simMinutes = int.Parse(timeArray[1]);
+
+            if(timeArray.Length > 0 )
+            {
+                UnityEngine.Debug.Log(timeArray[0] + " Hours");
+                UnityEngine.Debug.Log(timeArray[1] + " Minutes");
+                VarHolder.simHours = int.Parse(timeArray[0]);
+                VarHolder.simMinutes = int.Parse(timeArray[1]);
+            }
         }
 
         bool IsNull1 = Int32.TryParse(DefaultPawnField.text, out int tmp1);

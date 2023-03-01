@@ -12,6 +12,7 @@ public class AerosolScript : MonoBehaviour
     private float timeStep;
     private float tmpTime;
     [SerializeField] public float spawnedSus;
+    [SerializeField] public bool hadMask;
     VarManager VarManager;
 
     void Start()
@@ -19,15 +20,11 @@ public class AerosolScript : MonoBehaviour
         VarManager = GameObject.Find("GameManager").GetComponent<VarManager>();
 
         endTime = UnityEngine.Random.Range(9, 15);
-        startingSize = UnityEngine.Random.Range(3f, 6f);
+        startingSize = UnityEngine.Random.Range(3f, 6f); //Involve sus
         transform.localScale = new Vector3(startingSize, startingSize, startingSize);
 
-        //float densityDecrease = cloudDensity / (endTime - startingSize);
         timeStep = (endTime / cloudDensity);
         tmpTime = timeStep;
-
-        //SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        //spriteRenderer.color = new Color(0, 0, 0, 1f);
     }
 
     void Update()
@@ -35,6 +32,7 @@ public class AerosolScript : MonoBehaviour
         timer += Time.deltaTime * 0.6f;
         //int seconds = Convert.ToInt32(timer % 60);
 
+        //Try removing 2 steps from Density in the first half of the timer, then 0.5 in the second half to simulate heavy droplets falling out.
         if(timer > tmpTime)
         {
             tmpTime += timeStep;
@@ -62,10 +60,23 @@ public class AerosolScript : MonoBehaviour
 
             chance = Convert.ToInt32(chance * spawnedSus * (cloudDensity/100));
 
-            if (chance > VarManager.cloudInfectionChance)
+            if (hadMask)
             {
-                col.gameObject.tag = "IncubatingPawn";
+                if ((chance / 2) > VarManager.cloudInfectionChance)
+                {
+                    col.gameObject.tag = "IncubatingPawn";
+                }
             }
+            else
+            {
+                if (chance > VarManager.cloudInfectionChance)
+                {
+                    col.gameObject.tag = "IncubatingPawn";
+                }
+            }
+
+
+            
         }
 
     }

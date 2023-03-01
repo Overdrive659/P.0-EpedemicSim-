@@ -22,6 +22,13 @@ public class PawnController : MonoBehaviour
     {
         VarManager = GameObject.Find("GameManager").GetComponent<VarManager>();
         susVariable = UnityEngine.Random.Range(VarManager.minimumSusceptibility, VarManager.maximumSusceptibility);
+
+        int maskChance = UnityEngine.Random.Range(0, 101);
+
+        if(maskChance > VarManager.hasMaskChance)
+        {
+            hasMask = true;
+        }
     }
     // Start is called before the first frame update
     void Start()
@@ -53,9 +60,19 @@ public class PawnController : MonoBehaviour
         {
             int chance = UnityEngine.Random.Range(0, 101);
 
-            if((chance * susVariable) > VarManager.areaInfectionChance)
+            if(hasMask)
             {
-                col.gameObject.tag = "IncubatingPawn";
+                if (((chance / 2) * susVariable) > VarManager.areaInfectionChance)
+                {
+                    col.gameObject.tag = "IncubatingPawn";
+                }
+            }
+            else
+            {
+                if ((chance * susVariable) > VarManager.areaInfectionChance)
+                {
+                    col.gameObject.tag = "IncubatingPawn";
+                }
             }
         }
         

@@ -60,7 +60,7 @@ public class Timer : MonoBehaviour
                 timerIsRunning = false;
                 Debug.Log("Timer Has Run Out!");
                 Debug.Log("Printing All Data to .TXT File");
-                Application.Quit();
+                //Application.Quit();
             }
 
             //Check if the total time has decreased with 60 seconds, if it has: Timestamp it and decrease minute timer, then check again.

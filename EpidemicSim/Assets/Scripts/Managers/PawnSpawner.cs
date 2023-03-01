@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public class PawnSpawner : MonoBehaviour
 {
@@ -62,12 +63,18 @@ public class PawnSpawner : MonoBehaviour
             }
         }
 
+        Debug.Log("---PAWN SPAWNER HAS FULLY EXECUTED SPAWNING SEQUENCE---");
+        Debug.Log("TOTAL PAWNS SPAWNED:" + totPawns);
+        Debug.Log("Default Pawns:" + defPawns);
+        Debug.Log("Infected Pawns:" + infPawns);
+        Debug.Log("Vaccinated Pawns:" + vaxPawns);
+        Debug.Log("---REMOVING SELF---");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Destroy(this);
+        //Destroy(this);
     }
 
     private void OnDestroy()

@@ -3,19 +3,19 @@
 This document contains all the variables and paramateres
 set by the user for testing.
 
-DISEASE VICTIM SUSCEPTIBILITY | Minimum val:0 | Maximum val:1
-MASK WEARING PROBABILITY | Percentage:50
-BREATH RADIUS | Units:5
-BREATH INFECTION CHANCE | Percentage:1
-COUGH CHANCE | Percentage:40
-SNEEZE CHANCE | Percentage:10
-AEROSOL CLOUD INFECTION CHANCE | Percentage:45
+DISEASE VICTIM SUSCEPTIBILITY | Minimum val:0 | Maximum val:0
+MASK WEARING PROBABILITY | Percentage:0
+BREATH RADIUS | Units:0
+BREATH INFECTION CHANCE | Percentage:0
+COUGH CHANCE | Percentage:0
+SNEEZE CHANCE | Percentage:0
+AEROSOL CLOUD INFECTION CHANCE | Percentage:0
 --------------------------------------------------------
-TOTAL SIMULATION TIME | Hours:0 Minutes:1
-TOTAL PAWNS IN PLAY:260
-UN-INFECTED:200
-INFECTED:10
-VACCINATED:50
+TOTAL SIMULATION TIME | Hours:0 Minutes:0
+TOTAL PAWNS IN PLAY:
+UN-INFECTED:
+INFECTED:
+VACCINATED:
 
 Percentage of Infected at Start: 0%
 Percentage of Vaccinated at Start: 0%

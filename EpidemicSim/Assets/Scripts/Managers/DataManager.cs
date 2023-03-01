@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
 using System;
+using Unity.VisualScripting;
 
 public class DataManager : MonoBehaviour
 {
@@ -60,6 +61,10 @@ public class DataManager : MonoBehaviour
     //Function for creating and storing all Data that's been gathered in the Sim
     void DataCollection()
     {
+        if(mainPath == null)
+        {
+            Directory.CreateDirectory(mainPath);
+        }
         //InfectionOverTime Collection
         if (InfectionOverTimeS.Count > 0)
         {

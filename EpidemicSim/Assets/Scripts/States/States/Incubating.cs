@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class Incubating : BaseState
 {
@@ -11,29 +13,65 @@ public class Incubating : BaseState
 
     }
 
-    public VarManager VarManager;
+    [SerializeField] VarManager VarManager;
     [SerializeField] protected float sus;
     [SerializeField] DataManager DataManager;
     [SerializeField] Timer Timer;
 
+    [SerializeField] PawnController controller;
+
     public override void Enter()
     {
         base.Enter();
-        transform.GetComponentInParent<SpriteRenderer>().sprite = Resources.Load<Sprite>("IncubPawn");
 
-        VarManager = GameObject.Find("GameManager").GetComponent<VarManager>();
-        DataManager = GameObject.Find("GameManager").GetComponent<DataManager>();
-        Timer = GameObject.Find("GameManager").GetComponent<Timer>();
+        controller = transform.GetComponentInParent<PawnController>();
 
-        sus = transform.GetComponentInParent<PawnController>().susVariable;
 
-        //Data Collection
-        VarManager.totalInfected = VarManager.totalInfected +1;
-        DataManager.InfectionOverTimeS.Add(Tuple.Create(Timer.secondsPassed, VarManager.totalInfected));
+        //Sprite Setting
+        if (controller.hasMask)
+        {
+            Addressables.LoadAssetAsync<Sprite>("Assets/Resources_moved/MaskedIncubPawn.png").Completed += (asyncOperationHandle) =>
+            {
+                if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    transform.GetComponentInParent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
+                }
+                else
+                {
+                    Debug.Log("Incub_Pawn Spriteload FAILED!");
+                }
+            };
+        }
+        else
+        {
+            Addressables.LoadAssetAsync<Sprite>("Assets/Resources_moved/IncubPawn.png").Completed += (asyncOperationHandle) =>
+            {
+                if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    transform.GetComponentInParent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
+                }
+                else
+                {
+                    Debug.Log("Incub_Pawn Spriteload FAILED!");
+                }
+            };
 
-        DataManager.InfectionLocations.Add(new Vector2(transform.position.x, transform.position.y));
 
-        StartCoroutine(WaitSystem());
+            //Defines
+            VarManager = GameObject.Find("GameManager").GetComponent<VarManager>();
+            DataManager = GameObject.Find("GameManager").GetComponent<DataManager>();
+            Timer = GameObject.Find("GameManager").GetComponent<Timer>();
+
+            sus = transform.GetComponentInParent<PawnController>().susVariable;
+
+            //Data Collection
+            VarManager.totalInfected = VarManager.totalInfected + 1;
+            DataManager.InfectionOverTimeS.Add(Tuple.Create(Timer.secondsPassed, VarManager.totalInfected));
+
+            DataManager.InfectionLocations.Add(new Vector2(transform.position.x, transform.position.y));
+
+            StartCoroutine(WaitSystem());
+        }
     }
 
     public override void UpdateLogic()

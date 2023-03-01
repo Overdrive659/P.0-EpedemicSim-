@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: PawnSprites
+  m_EditorClassIdentifier: 
+  m_GroupName: PawnSprites
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 82ec86a9606a7e5499ec2e079de936c7
+  m_SerializeEntries:
+  - m_GUID: 4f17874f61aa2c74b98f0ff5db709f98
+    m_Address: Assets/Resources_moved/IncubPawn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 45d460fc50f90e448bb2b6667ae04074
+    m_Address: Assets/Resources_moved/INFPawn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5e066cecb6468f848b13b414ee5f058b
+    m_Address: Assets/Resources_moved/MaskedIncubPawn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4e1447d9be0190e4db9a6226b4e588aa
+    m_Address: Assets/Resources_moved/MaskedINFPawn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b41da0fe260464f4e8f5cabde9686bb2
+    m_Address: Assets/Resources_moved/MaskedPawn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 71476afe874aa4c40aceafa730f12a0b
+    m_Address: Assets/Resources_moved/MaskedVaxxed-Pawn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 69bba5a285d6d8f45960b420da58adcc
+    m_Address: Assets/Resources_moved/Pawn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 362b5e04780946e4a8d4f33e474c1422
+    m_Address: Assets/Resources_moved/Vaxxed-Pawn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 894b294cd05b4b74d9a0c936ea16937d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 24c9ea79d34d7ce4fbc98d2adf2b8dab, type: 2}
+    - {fileID: 11400000, guid: a3834dc0b81bd014b8d0d2274391799b, type: 2}

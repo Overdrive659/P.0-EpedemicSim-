@@ -19,6 +19,7 @@ public class VarHolder : ScriptableObject
     public int? uninfectedPawnAmount;
     public int? infectedPawnAmount;
     public int? vaccinatedPawnAmount;
+    public int? maskedPawnAmount;
 
     public int simHours;
     public int simMinutes;
