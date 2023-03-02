@@ -40,7 +40,7 @@ public class Infected : BaseState
             {
                 if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
                 {
-                    transform.GetComponentInParent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
+                    transform.Find("SpriteObject").GetComponent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
                 }
                 else
                 {
@@ -54,7 +54,7 @@ public class Infected : BaseState
             {
                 if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
                 {
-                    transform.GetComponentInParent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
+                    transform.Find("SpriteObject").GetComponent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
                 }
                 else
                 {

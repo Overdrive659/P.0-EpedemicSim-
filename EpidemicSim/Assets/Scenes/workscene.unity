@@ -1719,9 +1719,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VarManager: {fileID: 0}
-  Pawn: {fileID: 819769458334171747, guid: 6326403bd3817ec4baacfa91783fcca7, type: 3}
-  InfPawn: {fileID: 1040632005531033941, guid: 4dc6c401b6238d047bbac27d051521ee, type: 3}
-  VaxPawn: {fileID: 8668276318071314723, guid: 5c90b12786942ba47926c6cfefe2b23c, type: 3}
+  Pawn: {fileID: 7301123801784575290, guid: 47d453f852812c3449db9f0b55abf323, type: 3}
+  InfPawn: {fileID: 7301123801784575290, guid: ef33bce5ebd88ce41a71c5b37b42715e, type: 3}
+  VaxPawn: {fileID: 7301123801784575290, guid: ede87c1834b95f04883716e417adc92f, type: 3}
 --- !u!114 &79684812
 MonoBehaviour:
   m_ObjectHideFlags: 0

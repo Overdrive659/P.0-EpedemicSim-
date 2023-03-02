@@ -27,7 +27,7 @@ public class Vaccinated : BaseState
             {
                 if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
                 {
-                    transform.GetComponentInParent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
+                    transform.Find("SpriteObject").GetComponent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
                 }
                 else
                 {
@@ -41,7 +41,7 @@ public class Vaccinated : BaseState
             {
                 if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
                 {
-                    transform.GetComponentInParent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
+                    transform.Find("SpriteObject").GetComponent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
                 }
                 else
                 {

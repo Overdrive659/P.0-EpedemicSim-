@@ -5,6 +5,7 @@
     <type fullname="DestroyOnSeconds" preserve="all" />
     <type fullname="Incubating" preserve="all" />
     <type fullname="Infected" preserve="all" />
+    <type fullname="LogInBuild" preserve="all" />
     <type fullname="PawnController" preserve="all" />
     <type fullname="PawnStateController" preserve="all" />
     <type fullname="Vaccinated" preserve="all" />

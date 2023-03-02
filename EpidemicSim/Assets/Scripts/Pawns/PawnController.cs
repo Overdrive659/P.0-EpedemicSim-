@@ -29,13 +29,13 @@ public class PawnController : MonoBehaviour
         {
             hasMask = true;
         }
+
+        agent = GetComponent<NavMeshAgent>();
     }
+
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
 
         agent.speed = UnityEngine.Random.Range(6f, 12f);
         agent.acceleration = agent.speed;
@@ -47,12 +47,8 @@ public class PawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //YOU WILL NOT MOVE MFer
-        agent.updateUpAxis = false;
-        agent.updateRotation = false;
-
         if (Vector3.Distance(target, transform.position) <= 5)
-        {
+        { 
             target = PositionGenerator();
             agent.SetDestination(target);
         }
