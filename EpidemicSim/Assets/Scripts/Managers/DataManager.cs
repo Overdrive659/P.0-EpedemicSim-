@@ -32,15 +32,14 @@ public class DataManager : MonoBehaviour
     {
         totInfected = VarManager.totalInfected;
 
-        // var InfectionOverTimeS = new List<(float, float)>();
-
         InfectionLocations.Add(GameObject.Find("corner1").transform.position);
         InfectionLocations.Add(GameObject.Find("corner2").transform.position);
         Debug.Log("InfectionLocationsStart:");
         Debug.Log("Found corner1: " + InfectionLocations[0]);
         Debug.Log("Found corner2: " + InfectionLocations[1]);
 
-        mainPath = Application.dataPath + @"\Simulation_Data_Log\";
+        mainPath = Application.streamingAssetsPath + @"/Simulation_Data_Log/";
+
     }
 
     void Update()
@@ -61,7 +60,7 @@ public class DataManager : MonoBehaviour
     //Function for creating and storing all Data that's been gathered in the Sim
     void DataCollection()
     {
-        if(mainPath == null)
+        if (!File.Exists(mainPath))
         {
             Directory.CreateDirectory(mainPath);
         }

@@ -47,7 +47,11 @@ public class PawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(target, transform.position) <= 5)
+        //YOU WILL NOT MOVE MFer
+        agent.updateUpAxis = false;
+        agent.updateRotation = false;
+
+        if (Vector3.Distance(target, transform.position) <= 5)
         {
             target = PositionGenerator();
             agent.SetDestination(target);
