@@ -13,8 +13,9 @@ public class VarHolder : ScriptableObject
     public int coughChance;
     public int sneezeChance;
     public int hasMaskChance;
-    public int breathRadius;
+    public float breathRadius;
     public int areaInfectionChance;
+    public int incubationTime;
 
     public int? uninfectedPawnAmount;
     public int? infectedPawnAmount;

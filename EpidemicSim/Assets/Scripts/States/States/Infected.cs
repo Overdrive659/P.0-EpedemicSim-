@@ -32,8 +32,6 @@ public class Infected : BaseState
         controller = transform.GetComponentInParent<PawnController>();
 
 
-        //FUCKING ADDRESSABLES BITCH
-        //FUCK THIS CONVOLUTED SYSTEM
         if(controller.hasMask)
         {
             Addressables.LoadAssetAsync<Sprite>("Assets/Resources_moved/MaskedINFPawn.png").Completed += (asyncOperationHandle) =>

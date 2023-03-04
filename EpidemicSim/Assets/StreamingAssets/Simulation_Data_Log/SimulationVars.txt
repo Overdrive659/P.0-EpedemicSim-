@@ -5,13 +5,13 @@ set by the user for testing.
 
 DISEASE VICTIM SUSCEPTIBILITY | Minimum val:0 | Maximum val:1
 MASK WEARING PROBABILITY | Percentage:25
-BREATH RADIUS | Units:3
-BREATH INFECTION CHANCE | Percentage:5
+BREATH RADIUS | Units:2.5
+BREATH INFECTION CHANCE | Percentage:100
 COUGH CHANCE | Percentage:40
 SNEEZE CHANCE | Percentage:10
-AEROSOL CLOUD INFECTION CHANCE | Percentage:20
+AEROSOL CLOUD INFECTION CHANCE | Percentage:100
 --------------------------------------------------------
-TOTAL SIMULATION TIME | Hours:0 Minutes:0
+TOTAL SIMULATION TIME | Hours:0 Minutes:10
 TOTAL PAWNS IN PLAY:
 UN-INFECTED:
 INFECTED:

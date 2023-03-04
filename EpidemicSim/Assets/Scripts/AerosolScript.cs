@@ -20,7 +20,7 @@ public class AerosolScript : MonoBehaviour
         VarManager = GameObject.Find("GameManager").GetComponent<VarManager>();
 
         endTime = UnityEngine.Random.Range(9, 15);
-        startingSize = UnityEngine.Random.Range(3f, 6f); //Involve sus
+        startingSize = UnityEngine.Random.Range((3f * spawnedSus), (6f * spawnedSus)); //Involve sus
         transform.localScale = new Vector3(startingSize, startingSize, startingSize);
 
         timeStep = (endTime / cloudDensity);

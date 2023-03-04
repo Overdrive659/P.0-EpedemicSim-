@@ -25,6 +25,8 @@ public class MenuDataManager : MonoBehaviour
     [SerializeField] private InputField InfectedPawnField;
     [SerializeField] private InputField VaccinatedPawnField;
 
+    [SerializeField] private InputField IncubationTimeField;
+
     public VarHolder VarHolder;
 
     // Start is called before the first frame update
@@ -43,7 +45,7 @@ public class MenuDataManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        VarHolder.breathRadius = Convert.ToInt32(BreathRadiusSlider.value);
+        VarHolder.breathRadius = BreathRadiusSlider.value;
         VarHolder.areaInfectionChance = Convert.ToInt32(AreaInfectionSlider.value);
         VarHolder.coughChance = Convert.ToInt32(CoughSlider.value);
         VarHolder.sneezeChance = Convert.ToInt32(SneezeSlider.value);
@@ -65,6 +67,16 @@ public class MenuDataManager : MonoBehaviour
                 UnityEngine.Debug.Log(timeArray[1] + " Minutes");
                 VarHolder.simHours = int.Parse(timeArray[0]);
                 VarHolder.simMinutes = int.Parse(timeArray[1]);
+            }
+        }
+
+        if(IncubationTimeField.text != null)
+        {
+            bool IsNull = Int32.TryParse(IncubationTimeField.text, out int tmp);
+
+            if(IsNull)
+            {
+                VarHolder.incubationTime = tmp;
             }
         }
 

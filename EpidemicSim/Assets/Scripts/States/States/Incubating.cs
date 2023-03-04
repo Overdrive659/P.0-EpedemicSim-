@@ -34,7 +34,7 @@ public class Incubating : BaseState
             {
                 if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
                 {
-                    transform.GetComponentInParent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
+                    transform.Find("SpriteObject").GetComponent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
                 }
                 else
                 {
@@ -48,7 +48,7 @@ public class Incubating : BaseState
             {
                 if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
                 {
-                    transform.GetComponentInParent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
+                    transform.Find("SpriteObject").GetComponent<SpriteRenderer>().sprite = asyncOperationHandle.Result;
                 }
                 else
                 {
@@ -86,7 +86,7 @@ public class Incubating : BaseState
 
     IEnumerator WaitSystem()
     {
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(Convert.ToInt16(VarManager.incubationTime * sus));
         transform.parent.tag = "InfectedPawn";
     }
 }

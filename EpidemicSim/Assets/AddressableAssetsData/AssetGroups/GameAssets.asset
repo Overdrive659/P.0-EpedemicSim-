@@ -25,18 +25,6 @@ MonoBehaviour:
     m_Address: Assets/AerosolCloud.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 4dc6c401b6238d047bbac27d051521ee
-    m_Address: Assets/InfectedPawn.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 6326403bd3817ec4baacfa91783fcca7
-    m_Address: Assets/Pawn.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 5c90b12786942ba47926c6cfefe2b23c
-    m_Address: Assets/VaxxedPawn.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 158507aa5758ed14d90afdbba29bf8f2
     m_Address: Assets/EmoteText.anim
     m_ReadOnly: 0

@@ -14,8 +14,9 @@ public class VarManager : MonoBehaviour
     public int coughChance;
     public int sneezeChance;
     public int hasMaskChance;
-    public int breathRadius;
+    public float breathRadius;
     public int areaInfectionChance;
+    public int incubationTime;
 
     public int? uninfectedPawnAmount;
     public int? infectedPawnAmount;
@@ -40,6 +41,8 @@ public class VarManager : MonoBehaviour
         breathRadius = VarHolder.breathRadius;
         hasMaskChance = VarHolder.hasMaskChance;
         cloudInfectionChance = VarHolder.cloudInfectionChance;
+
+        incubationTime = VarHolder.incubationTime;
 
         uninfectedPawnAmount = VarHolder.uninfectedPawnAmount;
         infectedPawnAmount = VarHolder.infectedPawnAmount;

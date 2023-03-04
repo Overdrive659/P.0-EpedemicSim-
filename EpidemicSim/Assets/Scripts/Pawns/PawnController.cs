@@ -36,7 +36,6 @@ public class PawnController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         agent.speed = UnityEngine.Random.Range(6f, 12f);
         agent.acceleration = agent.speed;
 

@@ -45,16 +45,11 @@ public class DataManager : MonoBehaviour
     void Update()
     {
         totInfected = VarManager.totalInfected;
-
-        if(!Timer.timerIsRunning)
-        {
-            DataCollection();
-        }
     }
 
     private void OnDestroy()
     {
-        //DataCollection();
+        DataCollection();
     }
 
     //Function for creating and storing all Data that's been gathered in the Sim
