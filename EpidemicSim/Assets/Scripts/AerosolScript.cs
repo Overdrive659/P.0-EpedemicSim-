@@ -74,9 +74,6 @@ public class AerosolScript : MonoBehaviour
                     col.gameObject.tag = "IncubatingPawn";
                 }
             }
-
-
-            
         }
 
     }
