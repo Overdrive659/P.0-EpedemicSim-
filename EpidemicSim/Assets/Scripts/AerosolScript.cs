@@ -20,17 +20,29 @@ public class AerosolScript : MonoBehaviour
         VarManager = GameObject.Find("GameManager").GetComponent<VarManager>();
 
         endTime = UnityEngine.Random.Range(9, 15);
-        startingSize = UnityEngine.Random.Range((3f * spawnedSus), (6f * spawnedSus)); //Involve sus
-        transform.localScale = new Vector3(startingSize, startingSize, startingSize);
-
+        
         timeStep = (endTime / cloudDensity);
         tmpTime = timeStep;
+
+        //Calculate size based on mask
+        if(hadMask)
+        {
+            startingSize = UnityEngine.Random.Range((3f * (spawnedSus + ((1 - spawnedSus) / 2))),(6f * (spawnedSus + ((1 - spawnedSus) / 2))));
+            startingSize = startingSize * 0.6f;
+        }
+        else
+        {
+            startingSize = UnityEngine.Random.Range((3f * (spawnedSus + ((1 - spawnedSus) / 2))), (6f * (spawnedSus + ((1 - spawnedSus) / 2))));
+        }
+
+        
+        transform.localScale = new Vector3(startingSize, startingSize, startingSize);
+
     }
 
     void Update()
     {
         timer += Time.deltaTime * 0.6f;
-        //int seconds = Convert.ToInt32(timer % 60);
 
         //Try removing 2 steps from Density in the first half of the timer, then 0.5 in the second half to simulate heavy droplets falling out.
         if(timer > tmpTime)
@@ -62,7 +74,7 @@ public class AerosolScript : MonoBehaviour
 
             if (hadMask)
             {
-                if ((chance / 2) > VarManager.cloudInfectionChance)
+                if ((chance / 0.4) > VarManager.cloudInfectionChance)
                 {
                     col.gameObject.tag = "IncubatingPawn";
                 }

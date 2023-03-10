@@ -61,7 +61,7 @@ public class PawnController : MonoBehaviour
 
             if(hasMask)
             {
-                if (((chance / 2) * susVariable) > VarManager.areaInfectionChance)
+                if (((chance * 0.4) * susVariable) > VarManager.areaInfectionChance)
                 {
                     col.gameObject.tag = "IncubatingPawn";
                 }

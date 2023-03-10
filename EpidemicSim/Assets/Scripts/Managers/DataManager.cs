@@ -69,10 +69,7 @@ public class DataManager : MonoBehaviour
                 sw.WriteLine("(0," + VarHolder.infectedPawnAmount + ")");
                 for (int i = 0; i < InfectionOverTimeS.Count; i++)
                 {
-                    string s = InfectionOverTimeS[i].ToString();
-                    s.Replace("(", "");
-                    s.Replace(")", "");
-                    sw.WriteLine(s);
+                    sw.WriteLine(InfectionOverTimeS[i].ToString());
                 }
                 Debug.Log("Infection Over Time Finished Collecting!");
             }
@@ -86,10 +83,7 @@ public class DataManager : MonoBehaviour
                 sw.WriteLine("X-Position, Y-Position");
                 for (int i = 0; i < InfectionLocations.Count; i++)
                 {
-                    string s = InfectionLocations[i].ToString();
-                    s.Replace("(", "");
-                    s.Replace(")", "");
-                    sw.WriteLine(s);
+                    sw.WriteLine(InfectionLocations[i].ToString());
                 }
                 Debug.Log("Infection Locations Finished Collecting!");
             }
