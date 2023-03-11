@@ -6,5 +6,3 @@ The program is entirely written in **C#**, using the **Unity Game Engine** as a 
 
 ### Abstract
 The COVID-19 pandemic took the world by storm unexpectedly in late 2019, since the start of the outbreak many things have changed, and many things have happened that have changed the publics outlook on diseases. One of the big setbacks that the COVID-19 pandemic caused was the lockdown of Schools across the world. There were many procedures put in place to prevent the disease from spreading in our academic centres, some better than others. The main focus of this project is to give the user an interactive insight into how the disease could spread, using the Authors' school as the target model.
-
-## Use 
