@@ -55,6 +55,10 @@ public class Vaccinated : BaseState
     public override void UpdateLogic()
     {
         base.UpdateLogic();
+        if (transform.parent.CompareTag("IncubatingPawn"))
+        {
+            GetComponent<PawnStateController>().ChangeState(GetComponent<PawnStateController>().incubatingState);
+        }
     }
 
 

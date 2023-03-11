@@ -65,27 +65,47 @@ public class AerosolScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
+        //float targetSus = col.gameObject.GetComponent<PawnController>().susVariable;
 
-        if (col.gameObject.CompareTag("Pawn"))
+        int chance = UnityEngine.Random.Range(0, 101);
+
+        chance = Convert.ToInt32(chance * spawnedSus * (cloudDensity / 100)); //targetSus
+
+        switch (col.gameObject.tag)
         {
-            int chance = UnityEngine.Random.Range(0, 101);
-
-            chance = Convert.ToInt32(chance * spawnedSus * (cloudDensity/100));
-
-            if (hadMask)
-            {
-                if ((chance / 0.4) > VarManager.cloudInfectionChance)
+            case "Pawn":
+                if (hadMask)
                 {
-                    col.gameObject.tag = "IncubatingPawn";
+                    if ((chance * 0.6f) > VarManager.cloudInfectionChance)
+                    {
+                        col.gameObject.tag = "IncubatingPawn";
+                    }
                 }
-            }
-            else
-            {
-                if (chance > VarManager.cloudInfectionChance)
+                else
                 {
-                    col.gameObject.tag = "IncubatingPawn";
+                    if (chance > VarManager.cloudInfectionChance)
+                    {
+                        col.gameObject.tag = "IncubatingPawn";
+                    }
                 }
-            }
+                break;
+
+            case "VaccinatedPawn":
+                if (hadMask)
+                {
+                    if (((chance * 0.6f) * 0.25f) > VarManager.cloudInfectionChance)
+                    {
+                        col.gameObject.tag = "IncubatingPawn";
+                    }
+                }
+                else
+                {
+                    if ((chance * 0.25f) > VarManager.cloudInfectionChance)
+                    {
+                        col.gameObject.tag = "IncubatingPawn";
+                    }
+                }
+                break;
         }
 
     }

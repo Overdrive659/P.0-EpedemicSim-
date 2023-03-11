@@ -55,26 +55,55 @@ public class PawnController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-       if(col.gameObject.CompareTag("Pawn"))
-        {
-            int chance = UnityEngine.Random.Range(0, 101);
+        //float targetSus = 1;
 
-            if(hasMask)
-            {
-                if (((chance * 0.4) * susVariable) > VarManager.areaInfectionChance)
-                {
-                    col.gameObject.tag = "IncubatingPawn";
-                }
-            }
-            else
-            {
-                if ((chance * susVariable) > VarManager.areaInfectionChance)
-                {
-                    col.gameObject.tag = "IncubatingPawn";
-                }
-            }
+        /*if(col.gameObject.tag == "Pawn" || col.gameObject.tag == "VaccinatedPawn")
+        {
+            targetSus = col.gameObject.GetComponent<PawnController>().susVariable;
         }
-        
+        */
+
+        int chance = UnityEngine.Random.Range(0, 101);
+
+        chance = Convert.ToInt32(chance * susVariable);
+
+        switch (col.gameObject.tag)
+        {
+            case "Pawn":
+                if (hasMask)
+                {
+                    if ((chance * 0.6f) > VarManager.areaInfectionChance)
+                    {
+                        col.gameObject.tag = "IncubatingPawn";
+                    }
+                }
+                else
+                {
+                    if (chance > VarManager.areaInfectionChance)
+                    {
+                        col.gameObject.tag = "IncubatingPawn";
+                    }
+                }
+                break;
+
+            case "VaccinatedPawn":
+                if (hasMask)
+                {
+                    if (((chance * 0.6f) * 0.25f) > VarManager.areaInfectionChance)
+                    {
+                        col.gameObject.tag = "IncubatingPawn";
+                    }
+                }
+                else
+                {
+                    if ((chance * 0.25f) > VarManager.areaInfectionChance)
+                    {
+                        col.gameObject.tag = "IncubatingPawn";
+                    }
+                }
+                break;
+        }
+
     }
 
     private Vector3 PositionGenerator()

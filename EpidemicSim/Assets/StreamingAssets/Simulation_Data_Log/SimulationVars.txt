@@ -11,11 +11,11 @@ COUGH CHANCE | Percentage:40
 SNEEZE CHANCE | Percentage:10
 AEROSOL CLOUD INFECTION CHANCE | Percentage:30
 --------------------------------------------------------
-TOTAL SIMULATION TIME | Hours:0 Minutes:10
-TOTAL PAWNS IN PLAY:14
-UN-INFECTED:10
-INFECTED:4
-VACCINATED:0
+TOTAL SIMULATION TIME | Hours:3 Minutes:0
+TOTAL PAWNS IN PLAY:
+UN-INFECTED:
+INFECTED:
+VACCINATED:
 
 Percentage of Infected at Start: 0%
 Percentage of Vaccinated at Start: 0%
