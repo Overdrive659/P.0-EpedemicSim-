@@ -10,15 +10,21 @@ public class PawnStateController : MonoBehaviour
     public Default defaultState;
     public Infected infectedState;
     public Vaccinated vaccinatedState;
+    public Incubating incubatingState;
 
     private void Awake()
     {
         defaultState = GetComponent<Default>();
         infectedState = GetComponent<Infected>();
+        vaccinatedState = GetComponent<Vaccinated>();
+        incubatingState = GetComponent<Incubating>();
     }
     // Start is called before the first frame update
     void Start()
     {
+        //Checks if it already has a state.
+        //If it doesn't, check its tag and return a state depending.
+        //Run the enter function on said state
         currentState = GetInitialState();
         if (currentState != null)
         {
@@ -60,20 +66,21 @@ public class PawnStateController : MonoBehaviour
 
     protected virtual BaseState GetInitialState()
     {
-        Debug.Log("GetInitialState has run correctly?");
-        Debug.Log("The Pawn's tag IS:");
-        Debug.Log(transform.parent.tag);
-
-
         if (transform.parent.tag == "Pawn")
         {
-            Debug.Log("The pawn should set to default state");
             return defaultState;
         }
         if (transform.parent.tag == "InfectedPawn")
         {
-            Debug.Log("The pawn should set to infected state");
             return infectedState;
+        }
+        if (transform.parent.tag == "VaccinatedPawn")
+        {
+            return vaccinatedState;
+        }
+        if (transform.parent.tag == "IncubatingPawn")
+        {
+            return incubatingState;
         }
         else 
             return null;

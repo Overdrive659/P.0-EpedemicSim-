@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: GameAssets
+  m_EditorClassIdentifier: 
+  m_GroupName: GameAssets
+  m_Data:
+    m_SerializedData: []
+  m_GUID: d1d953eb18038614eb0fe90954bc134e
+  m_SerializeEntries:
+  - m_GUID: ea3c7ec9fe295614c9b05c22b6f76878
+    m_Address: Assets/Emote.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a159d0d121bccf94f8306b695dc68a68
+    m_Address: Assets/AerosolCloud.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 158507aa5758ed14d90afdbba29bf8f2
+    m_Address: Assets/EmoteText.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 322f0e5849f09cf4c8c13470a8bb2c47
+    m_Address: Assets/EmoteText.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 894b294cd05b4b74d9a0c936ea16937d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 275562c27f76e24469c98c8950f10b5e, type: 2}
+    - {fileID: 11400000, guid: 08e02be297b80be4ea2f3675b84f3633, type: 2}

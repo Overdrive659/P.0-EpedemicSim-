@@ -8,11 +8,12 @@ TagManager:
   - Pawn
   - VaccinatedPawn
   - InfectedPawn
+  - IncubatingPawn
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Layer 3
   - Water
   - UI
   - 
@@ -44,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Layer 1
+    uniqueID: 4193986689
     locked: 0
